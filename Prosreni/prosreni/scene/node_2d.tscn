@@ -3,7 +3,11 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
+<<<<<<< Updated upstream
 position = Vector2(84, 44)
+=======
+position = Vector2(91, 26)
+>>>>>>> Stashed changes
 scale = Vector2(100, 171.484)
 
 [node name="Area2D2" type="Area2D" parent="."]
