@@ -1,2 +1,4 @@
+res://Settings/back.gd
+res://Settings/settings.tscn
 res://Menu/menu.tscn
 res://Menu/play.gd

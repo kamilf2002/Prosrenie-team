@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://4f4skqyqg1ge"]
+
+[ext_resource type="Texture2D" uid="uid://2msvtgula4v3" path="res://Settings/settings.jpg" id="1_qeycx"]
+[ext_resource type="Script" uid="uid://ch764wstvtsem" path="res://Settings/back.gd" id="2_d3rbk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Settings" type="Sprite2D" parent="."]
+position = Vector2(575, 323.5)
+scale = Vector2(1.5652174, 1.557971)
+texture = ExtResource("1_qeycx")
+
+[node name="back" type="Button" parent="."]
+offset_left = 467.0
+offset_top = 432.0
+offset_right = 848.0
+offset_bottom = 530.0
+text = "Назад"
+script = ExtResource("2_d3rbk")
+
+[connection signal="pressed" from="back" to="back" method="_on_pressed"]
