@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 res://scene/node_2d.tscn
+=======
+res://Settings/back.gd
+res://Settings/settings.tscn
+res://Menu/menu.tscn
+res://Menu/play.gd
+>>>>>>> c611dcdc1ca33e920a7e25d086aa8c396916ab63

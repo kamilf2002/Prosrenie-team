@@ -3,7 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://c8kudrk6q20jg" path="res://ac0ac79af02086e.png" id="1_drhme"]
 [ext_resource type="Script" uid="uid://dvmf6bgxyyguc" path="res://scene/node_2d.gd" id="1_guiot"]
 
+<<<<<<< HEAD
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_guiot"]
+=======
+[node name="Area2D" type="Area2D" parent="."]
+<<<<<<< Updated upstream
+position = Vector2(84, 44)
+=======
+position = Vector2(91, 26)
+>>>>>>> Stashed changes
+scale = Vector2(100, 171.484)
+>>>>>>> c611dcdc1ca33e920a7e25d086aa8c396916ab63
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ppd22"]
 animations = [{
