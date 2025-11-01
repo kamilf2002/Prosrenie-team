@@ -1,11 +1,27 @@
-[gd_scene format=3 uid="uid://cbfqpyxaupiwm"]
+[gd_scene load_steps=5 format=3 uid="uid://cbfqpyxaupiwm"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://c8kudrk6q20jg" path="res://ac0ac79af02086e.png" id="1_drhme"]
+[ext_resource type="Script" uid="uid://dvmf6bgxyyguc" path="res://scene/node_2d.gd" id="1_guiot"]
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(84, 44)
-scale = Vector2(100, 171.484)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_guiot"]
 
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(55.000008, 42.000004)
-scale = Vector2(1435504.1, 2057.0496)
+[sub_resource type="SpriteFrames" id="SpriteFrames_ppd22"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_drhme")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_guiot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_guiot")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.028785007, 0.03202919)
+sprite_frames = SubResource("SpriteFrames_ppd22")
