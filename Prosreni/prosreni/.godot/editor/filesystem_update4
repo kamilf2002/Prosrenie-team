@@ -1,4 +1,16 @@
-res://levels/level 2/level 2.tscn
-res://test/M_Kryg.gdshader
+<<<<<<< HEAD
+res://levels/level_1.tscn
+res://levels/spikes.gd
+res://Menu/menu.tscn
 res://player/player.gd
+res://player/player.tscn
+res://levels/tile_map_layer.gd
+=======
+res://levels/level 2/level 2.tscn
 res://levels/level 1/level_1.tscn
+res://Menu/menu.tscn
+res://Menu/play.gd
+res://player/player.tscn
+res://test/mouse.gd
+res://test/M_Kryg.gdshader
+>>>>>>> e15ec1609e3ffcb835e18ce210034ba72d0e5278

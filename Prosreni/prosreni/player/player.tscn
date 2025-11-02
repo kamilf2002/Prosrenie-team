@@ -36,6 +36,7 @@ shape = SubResource("RectangleShape2D_g1dw6")
 scale = Vector2(0.60649896, 0.64941084)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
 animation = &"happy"
+autoplay = "happy"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
