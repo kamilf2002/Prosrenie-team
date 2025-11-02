@@ -38,7 +38,6 @@ sprite_frames = SubResource("SpriteFrames_g1dw6")
 animation = &"happy"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-enabled = false
 zoom = Vector2(3, 3)
 process_callback = 0
 limit_left = 0
