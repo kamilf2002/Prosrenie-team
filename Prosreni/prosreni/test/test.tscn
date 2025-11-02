@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://bpxgu0d0yaqsv" path="res://test/M_Kryg.gdshader" id="1_65205"]
 [ext_resource type="Script" uid="uid://xn32pies1wxp" path="res://test/mouse.gd" id="1_hrq6i"]
-[ext_resource type="Texture2D" uid="uid://bkc17pinckcsw" path="res://levels/maxresdefault.jpg" id="1_syuel"]
+[ext_resource type="Texture2D" uid="uid://bkc17pinckcsw" path="res://test/maxresdefault.jpg" id="1_syuel"]
 [ext_resource type="Texture2D" uid="uid://besl8jd3rwewc" path="res://assets/pictures/423b7ae46dd707386be36b2986063fa6.jpg" id="2_8a8pi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hrq6i"]
