@@ -6,46 +6,40 @@
 [node name="Menu" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(575.99994, 323.5)
-scale = Vector2(1.0666666, 1.0822147)
+position = Vector2(959.9999, 539.5)
+scale = Vector2(1.7777777, 1.807047)
 texture = ExtResource("1_rwxi6")
 
 [node name="Play" type="Button" parent="."]
-offset_left = 480.0
-offset_top = 211.0
-offset_right = 687.18756
-offset_bottom = 244.72711
+offset_left = 797.0
+offset_top = 325.0
+offset_right = 1175.0
+offset_bottom = 469.7271
 theme_override_colors/font_color = Color(0.8745098, 0.16078432, 0.8745098, 1)
+theme_override_font_sizes/font_size = 40
 text = "Играть
 "
 script = ExtResource("2_ihied")
 
 [node name="Settings" type="Button" parent="."]
-offset_left = 481.0
-offset_top = 257.0
-offset_right = 688.18756
-offset_bottom = 290.7271
+offset_left = 802.0
+offset_top = 526.0
+offset_right = 1165.0
+offset_bottom = 633.7271
 theme_override_colors/font_color = Color(0.8745098, 0.22745098, 0.8745098, 1)
+theme_override_font_sizes/font_size = 40
 text = "Настройки
 "
 
 [node name="Exit" type="Button" parent="."]
-offset_left = 481.0
-offset_top = 307.0
-offset_right = 687.0
-offset_bottom = 340.0
+offset_left = 786.0
+offset_top = 664.0
+offset_right = 1180.0
+offset_bottom = 815.0
 theme_override_colors/font_color = Color(0.8745098, 0.21176471, 0.8745098, 1)
+theme_override_font_sizes/font_size = 40
 text = "Выход"
-
-[node name="test" type="Button" parent="."]
-offset_left = 74.0
-offset_top = 524.0
-offset_right = 414.0
-offset_bottom = 611.0
-text = "тест тест тест
-"
 
 [connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
 [connection signal="pressed" from="Settings" to="Play" method="_on_settings_pressed"]
 [connection signal="pressed" from="Exit" to="Play" method="_on_exit_pressed"]
-[connection signal="pressed" from="test" to="Play" method="_on_test_pressed"]

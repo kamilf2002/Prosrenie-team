@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Node2D
+=======
+CanvasLayer
+>>>>>>> e15ec1609e3ffcb835e18ce210034ba72d0e5278
 TileMapLayer
 CollisionPolygon2D
 CollisionShape2D
