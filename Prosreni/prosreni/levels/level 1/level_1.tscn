@@ -85,6 +85,7 @@ tile_set = SubResource("TileSet_n46q3")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Black" type="Sprite2D" parent="CanvasLayer"]
+visible = false
 material = SubResource("ShaderMaterial_l53as")
 position = Vector2(575, 320)
 scale = Vector2(0.89804685, 0.9013889)
