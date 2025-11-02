@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var overlay: Sprite2D = $Black  # Оверлей (Black)
+@onready var overlay: Sprite2D = $CanvasLayer/Black  # Оверлей (Black)
 @onready var background: Sprite2D = $White  # Фон (White)
 @onready var overlay_material: ShaderMaterial = null  # Материал инициализируем null
 
