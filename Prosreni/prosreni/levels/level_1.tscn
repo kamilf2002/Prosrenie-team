@@ -92,3 +92,17 @@ script = ExtResource("5_n46q3")
 [node name="player" parent="player" node_paths=PackedStringArray("spikes_layer") instance=ExtResource("3_n46q3")]
 position = Vector2(43, 579)
 spikes_layer = NodePath("../../TileMapLayer")
+<<<<<<< HEAD:Prosreni/prosreni/levels/level_1.tscn
+=======
+=======
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Black" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_l53as")
+position = Vector2(575, 320)
+scale = Vector2(0.89804685, 0.9013889)
+texture = ExtResource("6_b1bl5")
+>>>>>>> e15ec1609e3ffcb835e18ce210034ba72d0e5278:Prosreni/prosreni/levels/level 1/level_1.tscn
+>>>>>>> 9d1b55969cf3e461900656b70747a4d7307fb08d:Prosreni/prosreni/levels/level 1/level_1.tscn
