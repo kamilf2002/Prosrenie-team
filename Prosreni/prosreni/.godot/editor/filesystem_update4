@@ -1,3 +1,6 @@
-res://player/player.tscn
 res://levels/level_1.tscn
+res://levels/spikes.gd
+res://Menu/menu.tscn
 res://player/player.gd
+res://player/player.tscn
+res://levels/tile_map_layer.gd
