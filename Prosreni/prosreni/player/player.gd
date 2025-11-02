@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 37f866f651c359d3287a6247a21aa7c0491421f5
 const SPEED = 150.0
 const JUMP_VELOCITY = -320.0
 var jump = 0

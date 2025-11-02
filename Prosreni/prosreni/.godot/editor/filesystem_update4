@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 res://player/player.gd
 res://levels/level_1.tscn
 res://test/mouse.gd
 res://test/M_Kryg.gdshader
 res://levels/level 2.tscn
+=======
+res://levels/level 2.tscn
+res://test/M_Kryg.gdshader
+res://test/mouse.gd
+res://player/player.gd
+>>>>>>> 37f866f651c359d3287a6247a21aa7c0491421f5
