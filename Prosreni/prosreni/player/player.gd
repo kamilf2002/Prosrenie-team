@@ -1,36 +1,53 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
+
+const SPEED = 150.0
 const JUMP_VELOCITY = -320.0
 var jump = 0
 const RESPAWN_POSITION = Vector2(43, 579)
 
-# Ссылка на TileMapLayer с шипами — НАЗНАЧЬ В ИНСПЕКТОРЕ!
 @export var spikes_layer: TileMapLayer
-@export var danger_tile_ids: Array[int] = [1, 2]  # ← ИЗМЕНИ ЗДЕСЬ ИЛИ В ИНСПЕКТОРЕ
+@export var danger_tile_ids: Array[int] = [1, 2]
+
 @onready var anim = $AnimatedSprite2D
 
+# === ПРОВЕРКА ОПАСНОГО ТАЙЛА ===
+func is_dangerous_tile_at(world_pos: Vector2) -> bool:
+	if spikes_layer == null:
+		return false
+	var local_pos = spikes_layer.to_local(world_pos)
+	var tile_pos = spikes_layer.local_to_map(local_pos)
+	var tile_id = spikes_layer.get_cell_source_id(tile_pos)
+	return tile_id != -1 and tile_id in danger_tile_ids
+
+# === РЕСПАВН ===
+func respawn() -> void:
+	position = RESPAWN_POSITION
+	velocity = Vector2.ZERO
+	print("Респавн там где надо!")
+
+# === ФИЗИКА ===
 func _physics_process(delta: float) -> void:
-	# === ГРАВИТАЦИЯ ===
+	# ГРАВИТАЦИЯ
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# === ПРЫЖОК ===
+	# ПРЫЖОК
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		jump = 0
 
-	# === ДВИЖЕНИЕ ВЛЕВО/ВПРАВО ===
+	# ДВИЖЕНИЕ
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# === АНИМАЦИЯ ===
+	# АНИМАЦИЯ
 	if velocity.y == 0:
 		if direction != 0:
-			anim.play("sad")  # или "run", если есть
+			anim.play("sad")
 		else:
 			anim.play("happy")
 	
@@ -39,41 +56,33 @@ func _physics_process(delta: float) -> void:
 	elif direction == 1:
 		$AnimatedSprite2D.flip_h = false
 
-	# === ДВИЖЕНИЕ (ОБЯЗАТЕЛЬНО ПЕРЕД ПРОВЕРКОЙ КОЛЛИЗИЙ!) ===
+	# === ДВИЖЕНИЕ (ОБЯЗАТЕЛЬНО ПЕРЕД ПРОВЕРКОЙ!) ===
 	move_and_slide()
 
-	# === ПРОВЕРКА ШИПОВ ПОСЛЕ ДВИЖЕНИЯ ===
-# === ОПАСНЫЕ ТАЙЛЫ (настраиваются в инспекторе) ===
-
-
-# === ПРОВЕРКА КОНКРЕТНЫХ ТАЙЛОВ ===
+	# === ПРОВЕРКА СКОЛЬЖЕНИЯ (БОК/ВЕРХ) ===
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
+		if collider == spikes_layer and is_dangerous_tile_at(collision.get_position()):
+			respawn()
+			return
 
-		if collider is TileMapLayer and collider == spikes_layer:
-			var collision_pos = collision.get_position()
-			var tile_pos = spikes_layer.local_to_map(collision_pos)
-			var tile_id = spikes_layer.get_cell_source_id(tile_pos)
+	# === ПРОВЕРКА СТОЯНИЯ НА ШИПАХ ===
+	if is_on_floor() and $CollisionShape2D != null:
+		var shape = $CollisionShape2D.shape
+		var half_width = 8.0
+		var foot_y = global_position.y + 16.0
 
-		# Если ID тайла есть в списке опасных
-			if tile_id in danger_tile_ids:
-				respawn()
-				return
-	if is_on_floor():
-		var floor_normal = get_floor_normal()
-		if floor_normal != Vector2.ZERO:
-		# Позиция под ногами
-			var foot_pos = global_position + Vector2(0, 8)  # подстрой под размер персонажа
-			var tile_pos = spikes_layer.local_to_map(spikes_layer.to_local(foot_pos))
-			var tile_id = spikes_layer.get_cell_source_id(tile_pos)
+		if shape is RectangleShape2D:
+			half_width = shape.extents.x * 0.8
+			foot_y = global_position.y + shape.extents.y + 1
 
-			if tile_id in danger_tile_ids:
-				respawn()
-				return
+		var left_foot = Vector2(global_position.x - half_width, foot_y)
+		var center_foot = Vector2(global_position.x, foot_y)
+		var right_foot = Vector2(global_position.x + half_width, foot_y)
 
-# === РЕСПАВН ===
-func respawn():
-	position = RESPAWN_POSITION
-	velocity = Vector2.ZERO
-	print("Респавн в (0, 0)!")
+		if (is_dangerous_tile_at(left_foot) or
+			is_dangerous_tile_at(center_foot) or
+			is_dangerous_tile_at(right_foot)):
+			respawn()
+			return
