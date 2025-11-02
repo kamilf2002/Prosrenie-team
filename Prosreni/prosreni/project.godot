@@ -14,3 +14,20 @@ config/name="Prosreni"
 run/main_scene="uid://cvi6qso1qohg2"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Global/Global.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/borderless=true
+window/vsync/vsync_mode=0
+
+[file_customization]
+
+folder_colors={
+"res://Menu/": "pink"
+}

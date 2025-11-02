@@ -37,6 +37,15 @@ offset_bottom = 340.0
 theme_override_colors/font_color = Color(0.8745098, 0.21176471, 0.8745098, 1)
 text = "Выход"
 
+[node name="test" type="Button" parent="."]
+offset_left = 74.0
+offset_top = 524.0
+offset_right = 414.0
+offset_bottom = 611.0
+text = "тест тест тест
+"
+
 [connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
 [connection signal="pressed" from="Settings" to="Play" method="_on_settings_pressed"]
 [connection signal="pressed" from="Exit" to="Play" method="_on_exit_pressed"]
+[connection signal="pressed" from="test" to="Play" method="_on_test_pressed"]
