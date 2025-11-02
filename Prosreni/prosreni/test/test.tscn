@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dltdomdapfeb0"]
+
+[ext_resource type="Shader" uid="uid://bpxgu0d0yaqsv" path="res://test/M_Kryg.gdshader" id="1_65205"]
+[ext_resource type="Script" uid="uid://xn32pies1wxp" path="res://test/mouse.gd" id="1_hrq6i"]
+[ext_resource type="Texture2D" uid="uid://bkc17pinckcsw" path="res://test/maxresdefault.jpg" id="1_syuel"]
+[ext_resource type="Texture2D" uid="uid://besl8jd3rwewc" path="res://assets/pictures/423b7ae46dd707386be36b2986063fa6.jpg" id="2_8a8pi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hrq6i"]
+shader = ExtResource("1_65205")
+shader_parameter/mouse_pos = Vector2(100, 100)
+shader_parameter/radius = 100.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hrq6i")
+
+[node name="Black" type="Sprite2D" parent="."]
+top_level = true
+material = SubResource("ShaderMaterial_hrq6i")
+position = Vector2(958, 540.5)
+scale = Vector2(1.5015625, 1.4986112)
+texture = ExtResource("1_syuel")
+
+[node name="White" type="Sprite2D" parent="."]
+position = Vector2(958.5, 540.5)
+scale = Vector2(0.9994792, 0.938368)
+texture = ExtResource("2_8a8pi")
