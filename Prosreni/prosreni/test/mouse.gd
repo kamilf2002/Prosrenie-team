@@ -4,16 +4,13 @@ extends Node2D
 @onready var overlay_material: ShaderMaterial = null  # Материал инициализируем null
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)  # Скрывает курсор полностью
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if overlay:
 		overlay_material = overlay.material as ShaderMaterial
 		if not overlay_material:
 			print("Ошибка: Материал на Black (overlay) не найден или не ShaderMaterial!")
 	else:
 		print("Ошибка: Узел Black (overlay) не найден!")
-	
-	#if not background:
-		#print("Ошибка: Узел White (background) не найден!")
 	
 	# Адаптивность
 	get_viewport().connect("size_changed", _on_viewport_size_changed)
@@ -35,7 +32,7 @@ func _on_viewport_size_changed():
 	var viewport_size = get_viewport_rect().size
 	
 	# Настройка оверлея (Black)
-	var overlay_texture = load("res://levels/maxresdefault.jpg")  # Замени путь
+	var overlay_texture = load("res://test/maxresdefault.jpg")  # Замени путь
 	if overlay_texture:
 		overlay.texture = overlay_texture
 		overlay.scale = viewport_size / overlay_texture.get_size()
@@ -46,4 +43,3 @@ func _on_viewport_size_changed():
 		
 func _exit_tree():  # Опционально: Показать курсор при выходе из сцены
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	

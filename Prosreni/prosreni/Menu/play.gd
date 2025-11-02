@@ -2,7 +2,7 @@ extends Button
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://levels/level 1/level_1.tscn")
+	get_tree().change_scene_to_file("res://levels/level_1.tscn")
 
 
 func _on_settings_pressed() -> void:

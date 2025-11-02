@@ -19,18 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*res://Global/Global.tscn"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
 window/size/borderless=true
 window/vsync/vsync_mode=0
-mouse_cursor/custom_image="uid://dchan5bjl6hxl"
-mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
 [file_customization]
 
@@ -54,7 +46,6 @@ ui_right={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
 ]
 }
-<<<<<<< HEAD
 ui_up={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":87,"physical_keycode":0,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
@@ -66,5 +57,3 @@ ui_up={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-=======
->>>>>>> e15ec1609e3ffcb835e18ce210034ba72d0e5278
