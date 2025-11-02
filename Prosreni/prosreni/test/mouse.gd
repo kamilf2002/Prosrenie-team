@@ -5,6 +5,7 @@ extends Node2D
 @onready var overlay_material: ShaderMaterial = null  # Материал инициализируем null
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)  # Скрывает курсор полностью
 	if overlay:
 		overlay_material = overlay.material as ShaderMaterial
 		if not overlay_material:
@@ -34,8 +35,8 @@ func _process(_delta):
 func _on_viewport_size_changed():
 	var viewport_size = get_viewport_rect().size
 	
-	# Настройка фона (White)
-	var bg_texture = load("res://assets/pictures/423b7ae46dd707386be36b2986063fa6.jpg")  # Замени путь, если нужно
+	 #Настройка фона (White)
+	var bg_texture = load("res://Menu/2747c0c903ecd1ad63a9c864343f8f7a.jpg")  # Замени путь, если нужно
 	if bg_texture:
 		background.texture = bg_texture
 		background.scale = viewport_size / bg_texture.get_size()
@@ -44,7 +45,7 @@ func _on_viewport_size_changed():
 		print("Ошибка: Текстура res://background.png не найдена!")
 	
 	# Настройка оверлея (Black)
-	var overlay_texture = load("res://test/maxresdefault.jpg")  # Замени путь
+	var overlay_texture = load("res://levels/maxresdefault.jpg")  # Замени путь
 	if overlay_texture:
 		overlay.texture = overlay_texture
 		overlay.scale = viewport_size / overlay_texture.get_size()
@@ -52,4 +53,7 @@ func _on_viewport_size_changed():
 		overlay.z_index = 1  # Сверху
 	else:
 		print("Ошибка: Текстура res://overlay_black.png не найдена!")
+		
+func _exit_tree():  # Опционально: Показать курсор при выходе из сцены
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	

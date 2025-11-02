@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkc17pinckcsw"
-path="res://.godot/imported/maxresdefault.jpg-17cc420e208879e7204767079522eab1.ctex"
+path="res://.godot/imported/maxresdefault.jpg-0ee0cda3b9a839d91c8479b14b7f15d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test/maxresdefault.jpg"
-dest_files=["res://.godot/imported/maxresdefault.jpg-17cc420e208879e7204767079522eab1.ctex"]
+source_file="res://levels/maxresdefault.jpg"
+dest_files=["res://.godot/imported/maxresdefault.jpg-0ee0cda3b9a839d91c8479b14b7f15d6.ctex"]
 
 [params]
 

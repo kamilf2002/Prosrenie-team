@@ -1,0 +1,6 @@
+res://levels/level_1.tscn
+res://test/mouse.gd
+res://player/player.tscn
+res://Menu/menu.tscn
+res://Global/global.gd
+res://Global/Global.tscn
