@@ -1,5 +1,4 @@
 res://levels/level 2.tscn
-res://test/mouse.gd
-res://player/player.tscn
-res://player/player.gd
 res://test/M_Kryg.gdshader
+res://test/mouse.gd
+res://player/player.gd

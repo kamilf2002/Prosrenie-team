@@ -1,14 +1,12 @@
 extends Node2D
 
 @onready var overlay: Sprite2D = $CanvasLayer/Black  # Оверлей (Black)
-@onready var background: Sprite2D = $White  # Фон (White)
 @onready var overlay_material: ShaderMaterial = null  # Материал инициализируем null
 
 func _ready():
-<<<<<<< HEAD
+
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-=======
->>>>>>> 40199b1779d803b11ba4d2887756bf38a37bbcd4
+
 	if overlay:
 		overlay_material = overlay.material as ShaderMaterial
 		if not overlay_material:
@@ -16,12 +14,6 @@ func _ready():
 	else:
 		print("Ошибка: Узел Black (overlay) не найден!")
 	
-<<<<<<< HEAD
-=======
-	if not background:
-		print("Ошибка: Узел White (background) не найден!")
-	
->>>>>>> 40199b1779d803b11ba4d2887756bf38a37bbcd4
 	# Адаптивность
 	get_viewport().connect("size_changed", _on_viewport_size_changed)
 	_on_viewport_size_changed()
@@ -29,26 +21,17 @@ func _ready():
 # Новое: Обработка событий ввода для мгновенного обновления при движении мыши
 func _input(event):
 	if overlay_material and event is InputEventMouseMotion:
-		var global_mouse = get_global_mouse_position()
-		overlay_material.set_shader_parameter("mouse_pos", global_mouse)
+		var screen_mouse = get_viewport().get_mouse_position()  # ФИКС: screen space!
+		overlay_material.set_shader_parameter("mouse_pos", screen_mouse)
 
 # _process() оставляем для дополнительных обновлений (на всякий случай, но основное в _input)
 func _process(_delta):
 	if overlay_material:
-		var global_mouse = get_global_mouse_position()
-		overlay_material.set_shader_parameter("mouse_pos", global_mouse)
+		var screen_mouse = get_viewport().get_mouse_position()
+		overlay_material.set_shader_parameter("mouse_pos", screen_mouse)
 
 func _on_viewport_size_changed():
 	var viewport_size = get_viewport_rect().size
-	
-	# Настройка фона (White)
-	var bg_texture = load("res://assets/pictures/423b7ae46dd707386be36b2986063fa6.jpg")  # Замени путь, если нужно
-	if bg_texture:
-		background.texture = bg_texture
-		background.scale = viewport_size / bg_texture.get_size()
-		background.position = viewport_size / 2
-	else:
-		print("Ошибка: Текстура res://background.png не найдена!")
 	
 	# Настройка оверлея (Black)
 	var overlay_texture = load("res://test/maxresdefault.jpg")  # Замени путь
@@ -59,10 +42,7 @@ func _on_viewport_size_changed():
 		overlay.z_index = 1  # Сверху
 	else:
 		print("Ошибка: Текстура res://overlay_black.png не найдена!")
-<<<<<<< HEAD
+
 		
 func _exit_tree():  # Опционально: Показать курсор при выходе из сцены
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-=======
-	
->>>>>>> 40199b1779d803b11ba4d2887756bf38a37bbcd4
